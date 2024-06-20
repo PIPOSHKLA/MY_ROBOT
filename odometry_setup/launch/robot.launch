@@ -1,0 +1,12 @@
+<launch>
+    <node name="serial_node" pkg="rosserial_arduino" type="serial_node.py" output="screen">
+            <param name="port" value="/dev/ttyACM0"/>
+            <param name="baud" value="57600" />
+    </node>
+    
+	<include file="$(find ldlidar_stl_ros)/launch/ld19.launch" />
+	
+    <node name="odom" pkg="odometry_setup" type="odom" output="screen" >
+	</node>
+   
+</launch>

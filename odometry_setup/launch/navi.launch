@@ -1,0 +1,11 @@
+<launch>
+
+<!-- Map server -->
+  <arg name="map_file" default="$(find odometry_setup)/hee2.yaml"/>
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+    <!-- AMCL -->
+  <include file="$(find amcl)/examples/amcl_diff.launch"/>
+  <include file="$(find odometry_setup)/launch/movebase.launch"/>
+
+</launch>
